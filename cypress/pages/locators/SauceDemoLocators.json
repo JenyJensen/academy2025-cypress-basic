@@ -5,6 +5,7 @@
     "btnLogin": "#login-button",
     
     "// Selectores de la página de inventario": "",
+    "inventoryLogo": ".app_logo",
     "inventoryContainer": ".inventory_container",
     "inventoryItem": ".inventory_item",
     "inventoryItemName": ".inventory_item_name",

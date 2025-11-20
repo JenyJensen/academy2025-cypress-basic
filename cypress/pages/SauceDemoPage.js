@@ -24,9 +24,9 @@ class SauceDemoPage {
     cy.visit('/');
   }
 
-  realizarLogin(username, password) {
-    cy.get(SauceDemoLocators.inputUsername).type(username);
-    cy.get(SauceDemoLocators.inputPassword).type(password);
+  realizarLogin(usuario, contrasenia) {
+    cy.get(SauceDemoLocators.inputUsername).type(usuario);
+    cy.get(SauceDemoLocators.inputPassword).type(contrasenia);
     cy.get(SauceDemoLocators.btnLogin).click();
   }
 
@@ -39,6 +39,9 @@ class SauceDemoPage {
   // ============================================================================
   // MÉTODOS DE PRODUCTOS
   // ============================================================================
+  verificarAppLogo() {
+    cy.get(SauceDemoLocators.inventoryLogo).should('be.visible');
+  }
 
   verificarProductosVisibles() {
     cy.get(SauceDemoLocators.inventoryItem).should('have.length.greaterThan', 0);

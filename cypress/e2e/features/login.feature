@@ -1,14 +1,12 @@
-Feature: Login SauceDemo
-  @login
-  Scenario: Login como usuario normal
-    Given  Me logueo como usuario correctamente
-  
-  @login
-  Scenario Outline: Login usuario - Escenario Outline 
-    Given Navego al sitio de automationtesting
-    When Me logueo como usuario con user '<user>' y pass '<pass>' 
-    Then Valido saludo de bienvenida en el Título
+@Saucedemo
+Feature: login en saucedemo
 
-        Examples:
-          | user                                            |   pass                |
-          | standard_user                                   |   secret_sauce        |
+  @LoginSauce
+  Scenario Outline: login <tipo> en página de inicio de saucedemo
+    Given estoy en la página de login de saucedemo
+    When ingreso el usuario <usuario> y la contrasenia <contrasenia> y hago click el el boton login
+    Then verifico ver <resultado>
+    Examples:
+      | tipo    | usuario         | contrasenia  | resultado                                                                       |
+      | exitoso | standard_user   | secret_sauce | el logo de la app en el homepage                                                |
+      | fallido | locked_out_user | secret_sauce | mensaje de error específico Epic sadface: Sorry, this user has been locked out. |
