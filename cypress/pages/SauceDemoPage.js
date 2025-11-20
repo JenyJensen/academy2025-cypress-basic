@@ -35,6 +35,11 @@ class SauceDemoPage {
     cy.get(SauceDemoLocators.inventoryContainer).should('be.visible');
     cy.get(SauceDemoLocators.inventoryItem).should('have.length.greaterThan', 0);
   }
+  verificarErrorMessageLogin() {
+    cy.get(SauceDemoLocators.errorMessage)
+      .should('be.visible')
+      .and('have.text', 'Epic sadface: Sorry, this user has been locked out.');
+  }
 
   // ============================================================================
   // MÉTODOS DE PRODUCTOS

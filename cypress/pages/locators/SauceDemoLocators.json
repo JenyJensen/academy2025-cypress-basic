@@ -3,6 +3,7 @@
     "inputUsername": "#user-name",
     "inputPassword": "#password",
     "btnLogin": "#login-button",
+    "errorMessage": "[data-test='error']",
     
     "// Selectores de la página de inventario": "",
     "inventoryLogo": ".app_logo",

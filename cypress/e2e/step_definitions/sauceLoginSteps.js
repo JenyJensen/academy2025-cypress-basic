@@ -14,6 +14,6 @@ Then("verifico ver el logo de la app en el homepage", () => {
     SauceDemoPage.verificarAppLogo();
 });
 
-Then("verifico ver mensaje de error específico Epic sadface: Sorry, this user has been locked out.", (errorMessage) => {
-    loginPage.elements.errorMessage().should("have.text", errorMessage);
+Then("verifico ver mensaje de error específico Epic sadface: Sorry, this user has been locked out.", () => {
+    SauceDemoPage.verificarErrorMessageLogin();
 });
