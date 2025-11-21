@@ -4,7 +4,7 @@ Feature: login en saucedemo
   @LoginSauce
   Scenario Outline: login <tipo> en página de inicio de saucedemo
     Given estoy en la página de login de saucedemo
-    When ingreso el usuario <usuario> y la contrasenia <contrasenia> y hago click el el boton login
+    When ingreso el usuario "<usuario>" y la contrasenia "<contrasenia>" y hago click el el boton login
     Then verifico ver <resultado>
     Examples:
       | tipo    | usuario         | contrasenia  | resultado                                                                       |
