@@ -9,6 +9,7 @@
     "inventoryLogo": ".app_logo",
     "inventoryContainer": ".inventory_container",
     "inventoryItem": ".inventory_item",
+    "btnRemove": "[data-test*=\"remove\"]",
     "inventoryItemName": ".inventory_item_name",
     "inventoryItemPrice": ".inventory_item_price",
     "btnInventory": ".btn_inventory",

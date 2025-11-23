@@ -78,7 +78,12 @@ class SauceDemoPage {
       .should('be.visible')
       .and('contain', cantidad.toString());
   }
-
+removeProductoDelCarrito() {
+    cy.get(SauceDemoLocators.btnRemove).click();
+  }
+  verificarContadorCarritoNoVisible() {
+    cy.get(SauceDemoLocators.shoppingCartBadge).should('not.exist');
+  }
   // ============================================================================
   // MÉTODOS DE FILTRADO
   // ============================================================================

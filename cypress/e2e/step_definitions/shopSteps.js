@@ -2,43 +2,26 @@ import { Given, When, Then, And } from "@badeball/cypress-cucumber-preprocessor"
 import SauceDemoPage from '@pages/SauceDemoPage';
 
 // Step para login específico del shop (SauceDemo)
-Given("Me logueo como usuario correctamente - shop demo", () => {
+Given("estoy en la página de inicio de la aplicación", () => {
     cy.log('👤 Iniciando login para shop demo (SauceDemo)...');
     SauceDemoPage.visitarPagina();
     SauceDemoPage.realizarLogin('standard_user', 'secret_sauce');
     SauceDemoPage.verificarLoginExitoso();
     cy.log('✅ Login exitoso en SauceDemo');
 });
-
-// Step para ingresar al shop (SauceDemo - ya estamos en inventory después del login)
-When("Ingreso al shop", () => {
-    cy.log('🛒 Verificando que estamos en la página de productos (SauceDemo)...');
-    cy.url().should('include', '/inventory.html');
-    SauceDemoPage.verificarProductosVisibles();
-    cy.log('✅ Estamos en la página de productos');
+When("Agrego el primer producto al carrito", () => {
+    SauceDemoPage.agregarPrimerProductoAlCarrito();
 });
 
-// Step para buscar por rango de precio (SauceDemo - filtrar por precio)
-When("Busco por rango de precio, de medio a mayor", () => {
-    cy.log('💰 Filtrando productos por precio de menor a mayor (SauceDemo)...');
-    SauceDemoPage.filtrarPorPrecioLowToHigh();
-    cy.log('✅ Filtro de precio aplicado');
+Then("Verifico que el contador del carrito muestra {int}", (cantidad) => {
+    SauceDemoPage.verificarContadorCarrito(cantidad);
 });
 
-// Step para ingresar al rango marcado (SauceDemo - el filtro ya se aplicó)
-When("Ingreso al rango de busqueda marcada", () => {
-    cy.log('🔍 Verificando que el filtro de precio está aplicado...');
-    // El filtro ya se aplicó en el step anterior, solo verificamos
-    cy.url().should('include', '/inventory.html');
-    cy.log('✅ Filtro de precio aplicado correctamente');
+When("hago click en boton remove del producto agregado al carrito de compras", () => {
+SauceDemoPage.removeProductoDelCarrito();
 });
-
-// Step para verificar rango de búsqueda (SauceDemo - verificar ordenamiento por precio)
-Then("Verifico que ingreso al rango de busqueda deseada", () => {
-    cy.log('✅ Verificando que los productos están ordenados por precio...');
-    cy.url().should('include', '/inventory.html');
-    SauceDemoPage.verificarProductosOrdenadosPorPrecio();
-    cy.log('✅ Productos ordenados por precio correctamente');
+Then("Verifico que el contador del carrito no es visible" , () => {
+    SauceDemoPage.verificarContadorCarritoNoVisible();
 });
 
 // Step para agregar productos al carrito (SauceDemo)

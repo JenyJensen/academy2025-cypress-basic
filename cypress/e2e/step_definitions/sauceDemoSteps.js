@@ -27,9 +27,6 @@ Then("Verifico que los productos están visibles", () => {
     SauceDemoPage.verificarProductosVisibles();
 });
 
-When("Agrego el primer producto al carrito", () => {
-    SauceDemoPage.agregarPrimerProductoAlCarrito();
-});
 
 When("Agrego el segundo producto al carrito", () => {
     SauceDemoPage.agregarSegundoProductoAlCarrito();
@@ -45,9 +42,7 @@ Then("Verifico que el botón cambió a Remove", () => {
     SauceDemoPage.verificarBotonCambioARemove(0);
 });
 
-Then("Verifico que el contador del carrito muestra {int}", (cantidad) => {
-    SauceDemoPage.verificarContadorCarrito(cantidad);
-});
+
 
 // ============================================================================
 // STEPS DE FILTRADO
